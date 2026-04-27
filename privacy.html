@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Privacy Policy | Tiger Aura</title>
+    <style>
+        :root { --bg: #050505; --accent: #ff9f1c; --glass: rgba(255, 255, 255, 0.03); --text: #ffffff; --text-dim: #a0a0a0; }
+        body { margin: 0; padding: 0; font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; align-items: center; }
+        .container { width: 100%; max-width: 500px; padding: calc(env(safe-area-inset-top) + 60px) 20px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; }
+        .nav { display: flex; justify-content: space-between; background: var(--glass); backdrop-filter: blur(15px); padding: 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .nav a { text-decoration: none; color: var(--text-dim); font-size: 13px; padding: 8px 15px; }
+        .content-card { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 30px; backdrop-filter: blur(20px); }
+        h1 { font-size: 24px; color: var(--accent); }
+        p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+        .close-btn { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            color: var(--text); 
+            padding: 15px; 
+            border-radius: 18px; 
+            width: 100%; 
+            font-weight: 600; 
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">Profile</a>
+            <a href="marketing.html">Marketing</a>
+            <a href="privacy.html" style="color: var(--accent);">Privacy</a>
+            <a href="support.html">Support</a>
+        </div>
+
+        <div class="content-card">
+            <h1>Privacy Policy</h1>
+            <p>At <strong>Tiger Aura</strong>, we believe that your privacy is non-negotiable.</p>
+            <p><strong>No Data Collection:</strong> We do not collect, store, or transmit any personal information or usage data. Everything stays on your device.</p>
+            <p><strong>Transparency:</strong> Our app does not use third-party trackers or analytical SDKs that could compromise your anonymity.</p>
+            <p>You can use Tiger Aura with complete peace of mind, knowing your digital footprint is zero.</p>
+            
+            <button class="close-btn" onclick="triggerAppClose()">Close and Return to App</button>
+        </div>
+    </div>
+
+    <script>
+        function triggerAppClose() {
+            // Функция для вызова нативного кода iOS (WKWebView)
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView) {
+                window.webkit.messageHandlers.closeWebView.postMessage("close");
+            } else {
+                console.log("Native handler not found, possibly in browser.");
+                alert("Privacy Policy accepted. You can now go back.");
+            }
+        }
+    </script>
+</body>
+</html>
